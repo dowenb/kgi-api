@@ -13,5 +13,10 @@ export default ({ config, db }) => {
 		res.json({ version });
 	});
 
+	//return a game
+	api.get('/game', (req, res) => {
+		res.json("Super Awesome Game1");
+	});
+
 	return api;
 }
