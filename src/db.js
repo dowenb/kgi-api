@@ -3,11 +3,15 @@ export default callback => {
 	const sqlite3 = require('sqlite3').verbose();
 
 	// open database in memory
-	let db = new sqlite3.Database(':memory:', (err) => {
+	// var file = './src/db/gameindex.db'; //sample game index db 
+	var file = './src/db/chinook.db'; //tutorial db
+
+	let db = new sqlite3.Database(file, sqlite3.OPEN_READONLY, (err) => {
 		if (err) {
 			return console.error(err.message);
 		}
-		console.log('Connected to the in-memory SQlite database.');
+		console.log("Connected to " + file + " database.");
 	});
+	
 	callback();
 }
